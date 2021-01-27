@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import SolarSystem from '../views/SolarSystem.vue';
-import Planet from '../views/Planet.vue';
+import PlanetInfo from '../views/PlanetInfo.vue';
 
 const routes = [
   {
@@ -11,7 +11,7 @@ const routes = [
   {
     path: '/planet/:id',
     name: 'planet',
-    component: Planet
+    component: PlanetInfo
   }
 ]
 

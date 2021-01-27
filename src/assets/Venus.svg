@@ -1,0 +1,26 @@
+<svg width="145" height="145" viewBox="0 0 145 145" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i)">
+<circle cx="72.5" cy="72.5" r="72.5" fill="#C0997A"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="145" height="145">
+<circle cx="72.5" cy="72.5" r="72.5" fill="#BE997D"/>
+</mask>
+<g mask="url(#mask0)">
+<rect x="-21.8687" y="117.554" width="184.857" height="18.4115" transform="rotate(-45.3693 -21.8687 117.554)" fill="#B79071"/>
+<rect x="-35" y="105.554" width="184.857" height="18.4115" transform="rotate(-45.3693 -35 105.554)" fill="#BC9576"/>
+<rect x="-9" y="130.554" width="184.857" height="18.4115" transform="rotate(-45.3693 -9 130.554)" fill="#B18C6F"/>
+<rect x="18" y="151.554" width="184.857" height="18.4115" transform="rotate(-45.3693 18 151.554)" fill="#BC9576"/>
+<rect x="33" y="161.955" width="182.611" height="41.3432" transform="rotate(-45.3693 33 161.955)" fill="#B79071"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_i" x="0" y="0" width="145" height="145" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-15"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.11 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+</filter>
+</defs>
+</svg>
