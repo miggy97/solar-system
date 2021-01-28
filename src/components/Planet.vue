@@ -53,11 +53,12 @@ export default {
   height: 5vh;
   line-height: 5vh;
   margin-bottom: 2vh;
-  border-radius: 5vh;
+  border-radius: 3vh;
 }
 
 h2 {
-  font-family: "Source Code Pro", monospace;  
+  // font-family: "Source Code Pro", monospace;
+  font-family: "Meteoric"; 
   font-size: 1.5vw;
   color: #000000;
 }

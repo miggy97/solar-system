@@ -1,5 +1,8 @@
 <template>
   <div class="main-view">
+    <!-- <div class="titleCenter">
+      <h1>Sistema Solar</h1>
+    </div> -->
     <div class="planets">
       <router-link class="sun" :to="linkToPlanet('sun')"
         ><Planet planetName="Sun" :isTag="false"
@@ -62,6 +65,18 @@ a {
   justify-content: space-between;
 }
 
+// .titleCenter{
+//   position: absolute;
+//   width: 100vw;
+//   text-align: center;
+//   margin-top: 5vh;
+// }
+
+// h1 {
+//   font-family: "Source Code Pro", monospace;
+//   color:white;
+//   font-size: 5vw;
+// }
 .sun {
   margin-right: -2%;
 }
