@@ -21,7 +21,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
 @import url(//db.onlinewebfonts.com/c/82a1a6e5316d84f1b8e2fa22a97e1211?family=Meteoric);
 
 body,

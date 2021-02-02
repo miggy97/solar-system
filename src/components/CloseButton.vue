@@ -23,8 +23,8 @@ div {
     width: 50px;
     height: 50px;
     position: absolute;
-    right: 1%;
-    top: 2%;
+    right: 1.5vw;
+    top: 3vh;
     background-color: #ffffff;
     border-radius: 50px;
     opacity: 1;

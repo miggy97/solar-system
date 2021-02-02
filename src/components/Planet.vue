@@ -8,6 +8,10 @@
     <img
       @mouseover="hover = true"
       @mouseleave="hover = false"
+      :class="[
+        { planetImg: !isEnlarge },
+        { planetImgEnlarge: isEnlarge },
+      ]"
       :src="require('@/assets/' + planetName + '.svg')"
       :alt="planetName"
     />
@@ -16,7 +20,7 @@
 
 <script>
 export default {
-  props: ["planetName", "isTag"],
+  props: ["planetName", "isTag", "isEnlarge"],
   data() {
     return {
       hover: false,
@@ -58,15 +62,22 @@ export default {
 
 h2 {
   // font-family: "Source Code Pro", monospace;
-  font-family: "Meteoric"; 
+  font-family: "Meteoric";
   font-size: 1.5vw;
   color: #000000;
 }
 
-img {
+.planetImg {
   width: 80%;
   height: auto;
   cursor: pointer;
   pointer-events: fill;
 }
+.planetImgEnlarge {
+  width: 85%;
+  height: auto;
+  cursor: pointer;
+  pointer-events: fill;
+}
+
 </style>

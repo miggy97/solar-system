@@ -1,0 +1,26 @@
+<svg width="161" height="161" viewBox="0 0 161 161" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i)">
+<circle cx="80.5" cy="80.5" r="80.5" fill="#6D77BF"/>
+<path d="M28 55C28 50.0294 32.0294 46 37 46H71.5C76.4706 46 80.5 50.0294 80.5 55V55C80.5 59.9706 76.4706 64 71.5 64H37C32.0294 64 28 59.9706 28 55V55Z" fill="#9399CD"/>
+<path d="M55 119C55 114.029 59.0294 110 64 110H98.5C103.471 110 107.5 114.029 107.5 119V119C107.5 123.971 103.471 128 98.5 128H64C59.0294 128 55 123.971 55 119V119Z" fill="#9399CD"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="161" height="161">
+<circle cx="80.5" cy="80.5" r="80.5" fill="#6D77BF"/>
+</mask>
+<g mask="url(#mask0)">
+<path d="M-26 100C-26 95.0294 -21.9706 91 -17 91H17.5C22.4706 91 26.5 95.0294 26.5 100V100C26.5 104.971 22.4706 109 17.5 109H-17C-21.9706 109 -26 104.971 -26 100V100Z" fill="#9399CD"/>
+<path d="M113 29C113 24.0294 117.029 20 122 20H156.5C161.471 20 165.5 24.0294 165.5 29V29C165.5 33.9706 161.471 38 156.5 38H122C117.029 38 113 33.9706 113 29V29Z" fill="#9399CD"/>
+<path d="M91 87C91 82.0294 95.0294 78 100 78H163C167.971 78 172 82.0294 172 87V87C172 91.9706 167.971 96 163 96H100C95.0294 96 91 91.9706 91 87V87Z" fill="#9399CD"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_i" x="0" y="0" width="161" height="161" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="47"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+</filter>
+</defs>
+</svg>

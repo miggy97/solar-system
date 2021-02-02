@@ -1,0 +1,30 @@
+<svg width="185" height="185" viewBox="0 0 185 185" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_i)">
+<circle cx="92.5" cy="92.5" r="92.5" fill="#D5966A"/>
+<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="185" height="185">
+<circle cx="92.5" cy="92.5" r="92.5" fill="#D5966A"/>
+</mask>
+<g mask="url(#mask0)">
+<rect x="-18.3583" y="49.6508" width="205.295" height="23.3495" transform="rotate(44.9208 -18.3583 49.6508)" fill="#5B4837"/>
+<rect x="-1.87622" y="33.3271" width="205.295" height="23.3495" transform="rotate(44.9208 -1.87622 33.3271)" fill="#B57D49"/>
+<rect x="14.4473" y="17.0037" width="205.295" height="23.3495" transform="rotate(44.9208 14.4473 17.0037)" fill="#775430"/>
+<rect x="52.5356" y="-8.84192" width="205.295" height="23.3495" transform="rotate(44.9208 52.5356 -8.84192)" fill="#5A4839"/>
+<rect x="68.8591" y="-25.1654" width="205.295" height="23.3495" transform="rotate(44.9208 68.8591 -25.1654)" fill="#B27E4E"/>
+<rect x="90.4987" y="-46.8198" width="205.295" height="30.878" transform="rotate(44.9208 90.4987 -46.8198)" fill="#755232"/>
+</g>
+<circle cx="128.888" cy="113.245" r="25.5055" fill="#D5966A"/>
+<circle cx="128.548" cy="112.904" r="20.4044" fill="#B88B62"/>
+<ellipse cx="128.548" cy="112.904" rx="16.3235" ry="16.3235" fill="#9F7857"/>
+</g>
+<defs>
+<filter id="filter0_i" x="0" y="0" width="185" height="185" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dx="-56"/>
+<feComposite in2="hardAlpha" operator="arithmetic" k2="-1" k3="1"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.15 0"/>
+<feBlend mode="normal" in2="shape" result="effect1_innerShadow"/>
+</filter>
+</defs>
+</svg>
