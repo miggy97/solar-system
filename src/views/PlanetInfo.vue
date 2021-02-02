@@ -92,7 +92,8 @@ export default {
 }
 
 h1 {
-  font-family: "Meteoric";
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
   font-size: 3vw;
   color: #000000;
 }
@@ -117,7 +118,8 @@ h1 {
 
 @media (max-width: 1000px) {
   h1 {
-    font-family: "Meteoric";
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
     font-size: 3.5vw;
     color: #000000;
   }
@@ -125,22 +127,79 @@ h1 {
 
 @media (max-width: 800px) {
   h1 {
-    font-family: "Meteoric";
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
     font-size: 4vw;
     color: #000000;
   }
 }
 @media (max-width: 700px) {
   h1 {
-    font-family: "Meteoric";
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
     font-size: 5vw;
     color: #000000;
+  }
+  .centerContainer {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+    grid-auto-flow: column;
+    justify-items: center;
+    align-items: center;
+    height: 1000px;
+  }
+  .sizeSaturn {
+    width: 40vw;
+    height: auto;
+  }
+  .sizePlanet {
+    width: 40vh;
+    height: auto;
+  }
+  .infoContainer {
+    align-self: start;
   }
 }
 @media (max-width: 600px) {
   h1 {
-    font-family: "Meteoric";
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
     font-size: 6vw;
+    color: #000000;
+  }
+}
+
+@media (max-width: 500px) {
+  h1 {
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 7vw;
+    color: #000000;
+  }
+}
+@media (max-width: 400px) {
+  h1 {
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 8vw;
+    color: #000000;
+  }
+}
+@media (max-width: 300px) {
+  h1 {
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 6vw;
+    color: #000000;
+  }
+}
+@media (max-width: 200px) {
+  h1 {
+    font-family: "Source Code Pro", monospace;
+    font-weight: 400;
+    font-size: 8vw;
     color: #000000;
   }
 }

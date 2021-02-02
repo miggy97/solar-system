@@ -7,6 +7,7 @@
       <router-link class="sun" :to="linkToPlanet('sun')"
         ><Planet planetName="Sun" :isTag="false" :isEnlarge="false"
       /></router-link>
+      <div class="sunPlaceholder"></div>
       <router-link class="mercury" :to="linkToPlanet('mercury')"
         ><Planet planetName="Mercury" :isTag="true" :isEnlarge="false"
       /></router-link>
@@ -65,18 +66,6 @@ a {
   justify-content: space-between;
 }
 
-// .titleCenter{
-//   position: absolute;
-//   width: 100vw;
-//   text-align: center;
-//   margin-top: 5vh;
-// }
-
-// h1 {
-//   font-family: "Source Code Pro", monospace;
-//   color:white;
-//   font-size: 5vw;
-// }
 .sun {
   margin-right: -2%;
 }
@@ -87,6 +76,59 @@ a {
 
 .jupiter {
   margin-right: -2%;
+}
+
+@media (max-width: 700px) {
+  .planets {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-between;
+    height: 1000px;
+  }
+  .sun {
+    transform: rotate(90deg);
+    margin-right: 0;
+    position: absolute;
+  }
+
+  .sunPlaceholder {
+    height: 25vh;
+  }
+
+  .saturn {
+    margin-right: 0;
+  }
+
+  .jupiter {
+    margin-right: 0;
+  }
+
+  a {
+    cursor: default;
+    pointer-events: none;
+    text-decoration: none;
+  }
+}
+
+
+@media (max-width: 370px) {
+  .sunPlaceholder {
+    height: 20vh;
+  }
+}
+@media (max-width: 290px) {
+  .sunPlaceholder {
+    height: 15vh;
+  }
+}
+@media (max-width: 220px) {
+  .sunPlaceholder {
+    height: 10vh;
+  }
 }
 </style>
 

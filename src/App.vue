@@ -1,6 +1,7 @@
 <template>
   <router-view></router-view>
-  <vue-particles class="stars"
+  <vue-particles
+    class="stars"
     color="#FFFFFF"
     :particleOpacity="1"
     :particlesNumber="130"
@@ -21,8 +22,7 @@
 </template>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap');
-@import url(//db.onlinewebfonts.com/c/82a1a6e5316d84f1b8e2fa22a97e1211?family=Meteoric);
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap");
 
 body,
 html {
@@ -46,5 +46,25 @@ html {
 .main-view {
   position: absolute;
   width: 100vw;
+}
+
+@media (max-width: 700px) {
+  #app {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #2c3e50;
+    background-color: #081b32;
+    height: 1050px;
+  }
+
+  .stars {
+    height: 1050px;
+  }
+
+  .main-view {
+    position: absolute;
+    height: 1050px;
+  }
 }
 </style>

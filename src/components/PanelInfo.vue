@@ -228,10 +228,9 @@ export default {
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background-color:rgba(255, 255, 255, 0.3);
-
+    background-color: rgba(255, 255, 255, 0.3);
   }
-  &::-webkit-scrollbar-track-piece:start{
+  &::-webkit-scrollbar-track-piece:start {
     margin-top: 12px;
   }
   &::-webkit-scrollbar-track-piece:end {
@@ -260,7 +259,8 @@ h2 {
   display: block;
 }
 .distanceNumSun {
-  font-family: "Meteoric";
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
   font-size: 14px;
   color: #000;
   margin-bottom: -50px;
@@ -311,7 +311,8 @@ h2 {
 }
 
 h5 {
-  font-family: "Meteoric";
+  font-family: "Source Code Pro", monospace;
+  font-weight: 400;
   font-size: 14px;
   color: #000;
 }
@@ -346,7 +347,8 @@ h5 {
     margin-left: -45px;
     li {
       text-decoration: none;
-      font-family: "Meteoric";
+      font-family: "Source Code Pro", monospace;
+      font-weight: 400;
       font-size: 14px;
       color: #000;
       list-style-type: none;
@@ -429,6 +431,22 @@ h5 {
 @keyframes spin {
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .panel {
+    background-color: white;
+    height: 85vh;
+    width: 23em;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.1)
+    );
+    border-radius: 3.5vh;
+    backdrop-filter: blur(0.1rem);
+    overflow-y: scroll;
   }
 }
 </style>
