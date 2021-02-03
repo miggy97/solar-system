@@ -55,16 +55,16 @@ html {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     background-color: #081b32;
-    height: 1050px;
+    height: 1200px;
   }
 
   .stars {
-    height: 1050px;
+    height: 1200px;
   }
 
   .main-view {
     position: absolute;
-    height: 1050px;
+    height: 1200px;
   }
 }
 </style>

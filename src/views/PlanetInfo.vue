@@ -140,6 +140,12 @@ h1 {
     font-size: 5vw;
     color: #000000;
   }
+  .content {
+    height: 1150px;
+    width: 100vw;
+    display: inline-block;
+    text-align: center;
+  }
   .centerContainer {
     width: 100vw;
     display: grid;
@@ -148,7 +154,7 @@ h1 {
     grid-auto-flow: column;
     justify-items: center;
     align-items: center;
-    height: 1000px;
+    height: 1150px;
   }
   .sizeSaturn {
     width: 40vw;
@@ -162,6 +168,13 @@ h1 {
     align-self: start;
   }
 }
+@media (max-width: 700px) {
+  .sizeSaturn {
+    width: 70vw;
+    height: auto;
+  }
+}
+
 @media (max-width: 600px) {
   h1 {
     font-family: "Source Code Pro", monospace;
@@ -185,6 +198,10 @@ h1 {
     font-weight: 400;
     font-size: 8vw;
     color: #000000;
+  }
+  .sizeSaturn {
+    width: 80vw;
+    height: auto;
   }
 }
 @media (max-width: 300px) {

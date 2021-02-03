@@ -10,7 +10,12 @@
       <h5 class="distanceNumSun">{{ distanceToSun }}</h5>
       <div class="distanceSun">
         <img class="sun" src="@/assets/Sun.svg" alt="Sun" />
-        <img class="lineSun" src="@/assets/Line.svg" alt="arrow" />
+        <img
+          :class="{ lineSaturn: isSaturn }"
+          class="lineSun"
+          src="@/assets/Line.svg"
+          alt="arrow"
+        />
         <img
           :class="planetSizeClass"
           :src="require('@/assets/' + planetName + '.svg')"
@@ -75,7 +80,7 @@
 
     <!-- Diameter and day duration -->
     <section class="divide">
-      <section>
+      <section class="alignDiameter">
         <div class="centerTag">
           <div class="tag">
             <h2>Diameter</h2>
@@ -88,7 +93,7 @@
           alt="Diameter"
         />
       </section>
-      <section>
+      <section class="alignDayDuration">
         <div class="centerTag">
           <div class="tag">
             <h2>Day duration</h2>
@@ -271,6 +276,10 @@ h2 {
   margin-right: 10px;
 }
 
+.lineSaturn {
+  margin-right: -5px;
+}
+
 // Size according to each planet
 .planetMars,
 .planetMercury {
@@ -447,6 +456,63 @@ h5 {
     border-radius: 3.5vh;
     backdrop-filter: blur(0.1rem);
     overflow-y: scroll;
+  }
+}
+@media (max-width: 400px) {
+  .panel {
+    background-color: white;
+    height: 85vh;
+    width: 20em;
+    background: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.1)
+    );
+    border-radius: 3.5vh;
+    backdrop-filter: blur(0.1rem);
+    overflow-y: scroll;
+  }
+  .lineSun {
+    width: 150px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .lineSaturn {
+    margin-right: -2px;
+  }
+
+  .lineEarth {
+    width: 150px;
+    margin-left: -30px;
+    margin-right: -30px;
+  }
+  .lineEarthClose {
+    width: 150px;
+    margin-left: -13px;
+    margin-right: -20px;
+  }
+  .divide {
+    margin-top: 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-auto-flow: column;
+    justify-items: center;
+  }
+  .alignDiameter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .alignDayDuration {
+    margin-top: 15px;
+  }
+  .diameter {
+    position: absolute;
+    margin-left: 0px;
+    margin-top: 60px;
   }
 }
 </style>

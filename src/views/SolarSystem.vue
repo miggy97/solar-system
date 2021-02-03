@@ -87,7 +87,7 @@ a {
     align-content: center;
     align-items: center;
     justify-content: space-between;
-    height: 1000px;
+    height: 1150px;
   }
   .sun {
     transform: rotate(90deg);
@@ -96,7 +96,7 @@ a {
   }
 
   .sunPlaceholder {
-    height: 25vh;
+    height: 20vh;
   }
 
   .saturn {
@@ -114,20 +114,25 @@ a {
   }
 }
 
+@media (max-width: 480px) {
+  .sunPlaceholder {
+    height: 18vh;
+  }
+}
 
 @media (max-width: 370px) {
   .sunPlaceholder {
-    height: 20vh;
+    height: 13vh;
   }
 }
 @media (max-width: 290px) {
   .sunPlaceholder {
-    height: 15vh;
+    height: 8vh;
   }
 }
 @media (max-width: 220px) {
   .sunPlaceholder {
-    height: 10vh;
+    height: 3vh;
   }
 }
 </style>
