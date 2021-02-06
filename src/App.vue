@@ -23,7 +23,7 @@
 
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap");
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 body,
 html {
   margin: 0;
@@ -55,16 +55,16 @@ html {
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     background-color: #081b32;
-    height: 1200px;
+    height: 1300px;
   }
 
   .stars {
-    height: 1200px;
+    height: 1300px;
   }
 
   .main-view {
     position: absolute;
-    height: 1200px;
+    height: 1300px;
   }
 }
 </style>

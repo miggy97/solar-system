@@ -29,8 +29,8 @@
       <router-link class="uranus" :to="linkToPlanet('uranus')"
         ><Planet planetName="Uranus" :isTag="true" :isEnlarge="false"
       /></router-link>
-      <router-link class="neptun" :to="linkToPlanet('neptun')"
-        ><Planet planetName="Neptun" :isTag="true" :isEnlarge="false"
+      <router-link class="neptune" :to="linkToPlanet('neptune')"
+        ><Planet planetName="Neptune" :isTag="true" :isEnlarge="false"
       /></router-link>
     </div>
   </div>

@@ -167,7 +167,7 @@ export default {
       isJupiter: false,
       isSaturn: false,
       isUranus: false,
-      isNeptun: false,
+      isNeptune: false,
       isNumFar: false, // Makes value distance earth closer to de line
       isLineClose: false, // Makes line arrow far from earth and planet
     };
@@ -182,7 +182,7 @@ export default {
         { planetJupiter: this.isJupiter },
         { planetSaturn: this.isSaturn },
         { planetUranus: this.isUranus },
-        { planetNeptun: this.isNeptun },
+        { planetNeptune: this.isNeptune },
       ];
     },
   },
@@ -193,7 +193,7 @@ export default {
     this.isMars = this.planetName === "Mars" ? true : false;
     this.isJupiter = this.planetName === "Jupiter" ? true : false;
     this.isSaturn = this.planetName === "Saturn" ? true : false;
-    this.isNeptun = this.planetName === "Neptun" ? true : false;
+    this.isNeptune = this.planetName === "Neptune" ? true : false;
     this.isUranus = this.planetName === "Uranus" ? true : false;
 
     this.isLineClose =
@@ -304,7 +304,7 @@ h2 {
   width: 60px;
   height: auto;
 }
-.planetNeptun {
+.planetNeptune {
   width: 50px;
   height: auto;
 }

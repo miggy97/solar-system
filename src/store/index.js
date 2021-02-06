@@ -135,8 +135,8 @@ export default createStore({
           { curi: 'Only one spacecraft has flown by Uranus (Voyager 2)'},
         ],
       },
-      neptun: {
-        name: 'Neptun',
+      neptune: {
+        name: 'Neptune',
         distanceToSun: '4500M km',
         distanceToEarth: '4300M km',
         temperature: [
@@ -146,7 +146,7 @@ export default createStore({
         dayDuration: '0d 16h 6m',
         yearDuration: '165 years',
         curiosities: [
-          { curi: 'Neptun has 14 known moons like Triton'},
+          { curi: 'Neptune has 14 known moons like Triton'},
           { curi: 'Neptune is the most distant planet from the Sun'},
           { curi: 'The atmosphere of Neptune is made of hydrogen and helium, with some methane'},
           { curi: 'Neptune has a very active climate'},
