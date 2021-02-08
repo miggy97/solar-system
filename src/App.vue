@@ -24,6 +24,7 @@
 <style lang="scss">
 @import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@200;400&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
 body,
 html {
   margin: 0;

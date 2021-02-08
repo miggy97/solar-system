@@ -94,7 +94,7 @@ h2 {
 .sun {
   width: 80%;
   height: auto;
-  cursor: pointer;
+  cursor: default;
   pointer-events: fill;
 }
 .planetImg {

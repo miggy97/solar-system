@@ -293,6 +293,18 @@ h1 {
     width: 80vw;
     height: auto;
   }
+  .planetOptions div div {
+    img {
+      width: 5vw;
+    }
+    h2 {
+      font-family: "Roboto", sans-serif;
+      margin-top: 0.4vw;
+      margin-bottom: 0.4vw;
+      color: #cecece;
+      font-size: 5.3vw;
+    }
+  }
 }
 @media (max-width: 300px) {
   h1 {

@@ -446,7 +446,7 @@ h5 {
 @media (max-width: 700px) {
   .panel {
     background-color: white;
-    height: 85vh;
+    height: 70vh;
     width: 23em;
     background: linear-gradient(
       to right bottom,
@@ -461,7 +461,7 @@ h5 {
 @media (max-width: 400px) {
   .panel {
     background-color: white;
-    height: 85vh;
+    height: 70vh;
     width: 20em;
     background: linear-gradient(
       to right bottom,

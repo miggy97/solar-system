@@ -57,6 +57,7 @@ iframe {
 
 @media (max-width: 700px) {
   iframe {
+    margin-top: 40px;
     width: 80vw;
     height: 50vh;
     border-radius: 2vw;

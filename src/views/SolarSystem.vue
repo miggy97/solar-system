@@ -1,10 +1,10 @@
 <template>
   <div class="main-view">
-    <!-- <div class="titleCenter">
-      <h1>Sistema Solar</h1>
-    </div> -->
+    <div class="titleCenter" v-if="!isMobile">
+      <h1>Solar System</h1>
+    </div>
     <div class="planets">
-      <router-link class="sun" :to="linkToPlanet('sun')"
+      <router-link class="sun" to="/"
         ><Planet planetName="Sun" :isTag="false" :isEnlarge="false"
       /></router-link>
       <div class="sunPlaceholder"></div>
@@ -43,15 +43,50 @@ export default {
   components: {
     Planet,
   },
+  data() {
+    return {
+      isMobile: false
+    }
+  },
   methods: {
     linkToPlanet(planet) {
       return { name: "planet", params: { id: planet } };
     },
+    handleView() {
+      this.isMobile = window.innerWidth <= 700;
+    },
+  },
+  mounted() {
+    window.addEventListener("resize", () => {
+      this.handleView();
+    });
+  },
+  created() {
+    this.handleView();
   },
 };
 </script>
 
 <style scoped lang="scss">
+.titleCenter {
+  position: absolute;
+  display: inline-block;
+  height: 0;
+  left: 50%;
+  h1 {
+    position: relative;
+    left: -50%;
+    color: #f5f5f5;
+    border-style: solid;
+    font-size: 5vw;
+    font-family: "IBM Plex Mono", monospace;
+    background-color: rgba(25, 28, 40, 0.5);
+    padding-left: 2vw;
+    padding-right: 2vw;
+    border-radius: 5vw;
+  }
+}
+
 a {
   cursor: default;
   pointer-events: none;

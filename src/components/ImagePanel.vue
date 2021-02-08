@@ -62,6 +62,7 @@ export default {
 
 @media (max-width: 700px) {
   .panel {
+    margin-top: 40px;
     width: 80vw;
     height: 50vh;
     background: linear-gradient(
