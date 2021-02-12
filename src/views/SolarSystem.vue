@@ -1,7 +1,7 @@
 <template>
   <div class="main-view">
     <div class="titleCenter" v-if="!isMobile">
-      <h1>Solar System</h1>
+      <h1 class="title">Solar System</h1>
     </div>
     <div class="planets">
       <router-link class="sun" to="/"
@@ -38,14 +38,14 @@
 
 <script>
 import Planet from "../components/Planet.vue";
-
+import gsap from "gsap";
 export default {
   components: {
     Planet,
   },
   data() {
     return {
-      isMobile: false
+      isMobile: false,
     }
   },
   methods: {
@@ -60,6 +60,14 @@ export default {
     window.addEventListener("resize", () => {
       this.handleView();
     });
+    let isAnim = this.$store.getters.getIsInitialAnim;
+    if(isAnim){
+      console.log(this.initialAnimaton)
+      gsap.timeline()
+      .from(".planets a", {y:80, opacity:0,stagger:0.1, duration:1, ease:"back"})
+      .from(".title", {opacity:0, scale:0, ease:"back", duration:0.7})
+    }
+    this.$store.commit('setIsInitialAnim', false);
   },
   created() {
     this.handleView();

@@ -4,6 +4,7 @@ import {
 
 export default createStore({
   state: {
+    isInitialAnim: true,
     planetInfo: {
       sun: {
         name: 'Sun',
@@ -157,6 +158,14 @@ export default createStore({
   getters: {
     getPlanetInfo: (state) => (planet) => {
       return state.planetInfo[planet];
+    },
+    getIsInitialAnim (state) {
+      return state.isInitialAnim;
     }
+  },
+  mutations: {
+    setIsInitialAnim (state, payload) {
+      state.isInitialAnim = payload;
+    } 
   }
 })
