@@ -4,7 +4,7 @@
       <h1 class="title">Solar System</h1>
     </div>
     <div class="planets">
-      <router-link class="sun" to="/"
+      <router-link :class="{sun: isMobile}" class="sun" to="/"
         ><Planet planetName="Sun" :isTag="false" :isEnlarge="false"
       /></router-link>
       <div class="sunPlaceholder"></div>
@@ -62,9 +62,8 @@ export default {
     });
     let isAnim = this.$store.getters.getIsInitialAnim;
     if(isAnim){
-      console.log(this.initialAnimaton)
       gsap.timeline()
-      .from(".planets a", {y:80, opacity:0,stagger:0.1, duration:1, ease:"back"})
+      .from(".planets a:not(:first-child)", {y:80, opacity:0,stagger:0.1, duration:1, ease:"back"})
       .from(".title", {opacity:0, scale:0, ease:"back", duration:0.7})
     }
     this.$store.commit('setIsInitialAnim', false);
