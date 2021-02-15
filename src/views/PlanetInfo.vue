@@ -22,19 +22,31 @@
           <ThreeDModel v-if="displaySection === '3D'" :planetName="name" />
           <div class="planetOptions">
             <div class="centerTag">
-              <div @click="displaySection = 'images'">
+              <div
+                class="images"
+                :class="{ selected: displaySection === 'images' }"
+                @click="displaySection = 'images'"
+              >
                 <img src="@/assets/cameraIcon.svg" alt="images" />
                 <h2>Images</h2>
               </div>
             </div>
             <div class="centerTag">
-              <div @click="displaySection = 'picture'">
+              <div
+                class="picture"
+                :class="{ selected: displaySection === 'picture' }"
+                @click="displaySection = 'picture'"
+              >
                 <img src="@/assets/circleIcon.svg" alt="Picture" />
                 <h2>Picture</h2>
               </div>
             </div>
             <div class="centerTag">
-              <div @click="displaySection = '3D'">
+              <div
+                class="threeD"
+                :class="{ selected: displaySection === '3D' }"
+                @click="displaySection = '3D'"
+              >
                 <img src="@/assets/threeD.svg" alt="3d" />
                 <h2>3D view</h2>
               </div>
@@ -63,6 +75,7 @@ import CloseButton from "../components/CloseButton.vue";
 import PanelInfo from "../components/PanelInfo.vue";
 import ImagePanel from "../components/ImagePanel.vue";
 import ThreeDModel from "../components/ThreeDModel.vue";
+import gsap from "gsap";
 
 export default {
   components: {
@@ -98,6 +111,18 @@ export default {
     this.yearDuration = planetInfo.yearDuration;
     this.curiosities = planetInfo.curiosities;
   },
+  mounted() {
+    window.scrollTo(0, 0);
+    gsap.timeline()
+      .from(".images", {opacity:0, scale:0, ease:"circ"})
+      .from(".picture", {opacity:0, scale:0, ease:"circ"})
+      .from(".threeD", {opacity:0, scale:0, ease:"circ"})
+      .from(".images img", {scale:0, ease:"circ"})
+      .from(".picture img", {scale:0, ease:"circ"})
+      .from(".threeD img", {scale:0, ease:"circ"})
+      .from(".threeD img", {rotation:-360, ease:"circ"})
+      
+  }
 };
 </script>
 
@@ -174,6 +199,10 @@ h1 {
       }
     }
   }
+}
+
+.selected {
+  background-color: #2c3e50 !important;
 }
 
 .sizeSaturn {

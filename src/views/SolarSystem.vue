@@ -64,7 +64,7 @@ export default {
     if(isAnim){
       gsap.timeline()
       .from(".planets a:not(:first-child)", {y:80, opacity:0,stagger:0.1, duration:1, ease:"back"})
-      .from(".title", {opacity:0, scale:0, ease:"back", duration:0.7})
+      .from(".title", {opacity:0, scale:0, ease:"circ", duration:1})
     }
     this.$store.commit('setIsInitialAnim', false);
   },
