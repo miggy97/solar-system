@@ -1,5 +1,23 @@
 <template>
   <div class="main-view">
+    <img
+      v-if="name === 'Earth'"
+      class="astronaut"
+      src="@/assets/astronaut.svg"
+      alt="astronaut"
+    />
+    <img
+      v-if="name === 'Earth'"
+      class="satelite"
+      src="@/assets/satelite.svg"
+      alt="satelite"
+    />
+    <img
+      v-if="name === 'Earth'"
+      class="rocket"
+      src="@/assets/rocket.svg"
+      alt="rocket"
+    />
     <CloseButton class="smaller" />
     <div class="content">
       <div class="centerTag">
@@ -76,6 +94,7 @@ import PanelInfo from "../components/PanelInfo.vue";
 import ImagePanel from "../components/ImagePanel.vue";
 import ThreeDModel from "../components/ThreeDModel.vue";
 import gsap from "gsap";
+import MotionPathPlugin from "gsap/MotionPathPlugin.js";
 
 export default {
   components: {
@@ -113,16 +132,65 @@ export default {
   },
   mounted() {
     window.scrollTo(0, 0);
-    gsap.timeline()
-      .from(".images", {opacity:0, scale:0, ease:"circ"})
-      .from(".picture", {opacity:0, scale:0, ease:"circ"})
-      .from(".threeD", {opacity:0, scale:0, ease:"circ"})
-      .from(".images img", {scale:0, ease:"circ"})
-      .from(".picture img", {scale:0, ease:"circ"})
-      .from(".threeD img", {scale:0, ease:"circ"})
-      .from(".threeD img", {rotation:-360, ease:"circ"})
-      
-  }
+    gsap.registerPlugin(MotionPathPlugin);
+    gsap
+      .timeline()
+      .from(".images", { opacity: 0, scale: 0, ease: "circ" })
+      .from(".picture", { opacity: 0, scale: 0, ease: "circ" })
+      .from(".threeD", { opacity: 0, scale: 0, ease: "circ" })
+      .from(".images img", { scale: 0, ease: "circ" })
+      .from(".picture img", { scale: 0, ease: "circ" })
+      .from(".threeD img", { scale: 0, ease: "circ" })
+      .from(".threeD img", { rotation: -360, ease: "circ" })
+      .add("start")
+      .to(
+        ".astronaut",
+        {
+          duration: 20,
+          repeat: 12,
+          repeatDelay: 2,
+          yoyo: true,
+          ease: "power1.inOut",
+          motionPath: [
+            { x: 0, y: 0 },
+            { x: -10, y: -200 },
+            { x: -80, y: -380 },
+          ],
+        },
+        "start"
+      )
+      .to(
+        ".satelite",
+        {
+          duration: 20,
+          repeat: 12,
+          repeatDelay: 2,
+          yoyo: true,
+          ease: "power1.inOut",
+          motionPath: [
+            { x: 0, y: 0 },
+            { x: -10, y: 200 },
+            { x: -80, y: 380 },
+          ],
+        },
+        "start"
+      )
+      .to(
+        ".rocket",
+        {
+          duration: 20,
+          repeat: 12,
+          repeatDelay: 2,
+          yoyo: true,
+          ease: "power1.inOut",
+          motionPath: [
+            { x: 0, y: 0 },
+            { x: 0, y: -380 },
+          ],
+        },
+        "start"
+      );
+  },
 };
 </script>
 
@@ -214,6 +282,30 @@ h1 {
   height: auto;
 }
 
+.astronaut {
+  position: absolute;
+  width: 8em;
+  height: auto;
+  right: 2%;
+  bottom: 0;
+}
+
+.satelite {
+  position: absolute;
+  width: 8em;
+  height: auto;
+  right: 50%;
+  top: 10%;
+}
+
+.rocket {
+  position: absolute;
+  width: 6em;
+  height: auto;
+  left: 2%;
+  bottom: 0;
+}
+
 @media (max-width: 1050px) {
   .planetOptions div div {
     img {
@@ -291,6 +383,30 @@ h1 {
   }
   .infoContainer {
     align-self: start;
+  }
+
+  .astronaut {
+    position: absolute;
+    width: 8em;
+    height: auto;
+    right: 30%;
+    bottom: 15%;
+  }
+
+  .satelite {
+    position: absolute;
+    width: 8em;
+    height: auto;
+    right: 5%;
+    top: 10%;
+  }
+
+  .rocket {
+    position: absolute;
+    width: 6em;
+    height: auto;
+    left: 2%;
+    top: 45%;
   }
 }
 
