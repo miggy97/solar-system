@@ -53,6 +53,7 @@ iframe {
   width: 35vw;
   height: 60vh;
   border-radius: 2vw;
+  z-index: 2;
 }
 
 @media (max-width: 700px) {
