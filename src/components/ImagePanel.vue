@@ -1,14 +1,17 @@
 <template>
   <div class="panel">
     <img
+      @click="displayFullScreen(1)"
       :src="require('@/assets/' + planetName + 'IMG1.jpg')"
       :alt="planetName"
     />
     <img
+      @click="displayFullScreen(2)"
       :src="require('@/assets/' + planetName + 'IMG2.jpg')"
       :alt="planetName"
     />
     <img
+      @click="displayFullScreen(3)"
       :src="require('@/assets/' + planetName + 'IMG3.jpg')"
       :alt="planetName"
     />
@@ -18,6 +21,11 @@
 <script>
 export default {
   props: ["planetName"],
+  methods: {
+    displayFullScreen(value) {
+      this.$emit("fullScreen", value);
+    },
+  },
 };
 </script>
 
@@ -30,6 +38,7 @@ export default {
     rgba(255, 255, 255, 0.7),
     rgba(255, 255, 255, 0.1)
   );
+  padding-top: 3px;
   border-radius: 3.5vh;
   backdrop-filter: blur(0.1rem);
   overflow-y: scroll;
@@ -57,6 +66,7 @@ export default {
     width: 33vw;
     height: auto;
     border-radius: 10px;
+    cursor: pointer;
   }
 }
 

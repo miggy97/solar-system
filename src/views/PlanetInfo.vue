@@ -1,5 +1,11 @@
 <template>
   <div class="main-view">
+    <FullScreen
+      :planetName="name"
+      :num="imgNum"
+      v-if="!isClose"
+      @close-image="closeImage"
+    />
     <img
       v-if="name === 'Earth'"
       class="astronaut"
@@ -36,7 +42,11 @@
             :src="require('@/assets/' + name + '.svg')"
             :alt="planetName"
           />
-          <ImagePanel v-if="displaySection === 'images'" :planetName="name" />
+          <ImagePanel
+            v-if="displaySection === 'images'"
+            :planetName="name"
+            @full-screen="openImageFullScreen"
+          />
           <ThreeDModel v-if="displaySection === '3D'" :planetName="name" />
           <div class="planetOptions">
             <div class="centerTag">
@@ -95,6 +105,7 @@ import ImagePanel from "../components/ImagePanel.vue";
 import ThreeDModel from "../components/ThreeDModel.vue";
 import gsap from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin.js";
+import FullScreen from "../components/FullScreen.vue";
 
 export default {
   components: {
@@ -102,6 +113,7 @@ export default {
     PanelInfo,
     ImagePanel,
     ThreeDModel,
+    FullScreen,
   },
   data() {
     return {
@@ -115,7 +127,18 @@ export default {
       curiosities: "",
       displaySection: "picture",
       resizeSaturn: false,
+      isClose: true,
+      imgNum: null,
     };
+  },
+  methods: {
+    closeImage() {
+      this.isClose = true;
+    },
+    openImageFullScreen(num) {
+      this.imgNum = num;
+      this.isClose = false;
+    },
   },
   created() {
     const planet = this.$route.params.id;
@@ -133,63 +156,76 @@ export default {
   mounted() {
     window.scrollTo(0, 0);
     gsap.registerPlugin(MotionPathPlugin);
-    gsap
-      .timeline()
-      .from(".images", { opacity: 0, scale: 0, ease: "circ" })
-      .from(".picture", { opacity: 0, scale: 0, ease: "circ" })
-      .from(".threeD", { opacity: 0, scale: 0, ease: "circ" })
-      .from(".images img", { scale: 0, ease: "circ" })
-      .from(".picture img", { scale: 0, ease: "circ" })
-      .from(".threeD img", { scale: 0, ease: "circ" })
-      .from(".threeD img", { rotation: -360, ease: "circ" })
-      .add("start")
-      .to(
-        ".astronaut",
-        {
-          duration: 20,
-          repeat: 12,
-          repeatDelay: 2,
-          yoyo: true,
-          ease: "power1.inOut",
-          motionPath: [
-            { x: 0, y: 0 },
-            { x: -10, y: -200 },
-            { x: -80, y: -380 },
-          ],
-        },
-        "start"
-      )
-      .to(
-        ".satelite",
-        {
-          duration: 20,
-          repeat: 12,
-          repeatDelay: 2,
-          yoyo: true,
-          ease: "power1.inOut",
-          motionPath: [
-            { x: 0, y: 0 },
-            { x: -10, y: 200 },
-            { x: -80, y: 380 },
-          ],
-        },
-        "start"
-      )
-      .to(
-        ".rocket",
-        {
-          duration: 20,
-          repeat: 12,
-          repeatDelay: 2,
-          yoyo: true,
-          ease: "power1.inOut",
-          motionPath: [
-            { x: 0, y: 0 },
-            { x: 0, y: -380 },
-          ],
-        },
-        "start"
-      );
+
+    if (this.name === "Earth") {
+      gsap
+        .timeline()
+        .from(".images", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".picture", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".threeD", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".images img", { scale: 0, ease: "circ" })
+        .from(".picture img", { scale: 0, ease: "circ" })
+        .from(".threeD img", { scale: 0, ease: "circ" })
+        .from(".threeD img", { rotation: -360, ease: "circ" })
+        .add("start")
+        .to(
+          ".astronaut",
+          {
+            duration: 20,
+            repeat: 12,
+            repeatDelay: 2,
+            yoyo: true,
+            ease: "power1.inOut",
+            motionPath: [
+              { x: 0, y: 0 },
+              { x: -10, y: -200 },
+              { x: -80, y: -380 },
+            ],
+          },
+          "start"
+        )
+        .to(
+          ".satelite",
+          {
+            duration: 20,
+            repeat: 12,
+            repeatDelay: 2,
+            yoyo: true,
+            ease: "power1.inOut",
+            motionPath: [
+              { x: 0, y: 0 },
+              { x: -10, y: 200 },
+              { x: -80, y: 380 },
+            ],
+          },
+          "start"
+        )
+        .to(
+          ".rocket",
+          {
+            duration: 20,
+            repeat: 12,
+            repeatDelay: 2,
+            yoyo: true,
+            ease: "power1.inOut",
+            motionPath: [
+              { x: 0, y: 0 },
+              { x: 0, y: -380 },
+            ],
+          },
+          "start"
+        );
+    } else {
+      gsap
+        .timeline()
+        .from(".images", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".picture", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".threeD", { opacity: 0, scale: 0, ease: "circ" })
+        .from(".images img", { scale: 0, ease: "circ" })
+        .from(".picture img", { scale: 0, ease: "circ" })
+        .from(".threeD img", { scale: 0, ease: "circ" })
+        .from(".threeD img", { rotation: -360, ease: "circ" });
+    }
   },
 };
 </script>
