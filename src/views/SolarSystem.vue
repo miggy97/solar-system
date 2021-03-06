@@ -1,36 +1,75 @@
 <template>
   <div class="main-view">
     <div class="titleCenter" v-if="!isMobile">
-      <h1 class="title">Solar System</h1>
+      <h1 class="title">{{ title }}</h1>
+    </div>
+    <div class="language">
+      <h2 class="lang">{{ language }}</h2>
+      <label class="switch">
+        <input type="checkbox" ref="langswitch" v-model="valueCbx" />
+        <span class="slider round"></span>
+      </label>
     </div>
     <div class="planets">
-      <router-link :class="{sun: isMobile}" class="sun" to="/"
-        ><Planet planetName="Sun" :isTag="false" :isEnlarge="false"
+      <router-link :class="{ sun: isMobile }" class="sun" to="/"
+        ><Planet
+          :planetName="planets.sun"
+          planet="Sun"
+          :isTag="false"
+          :isEnlarge="false"
       /></router-link>
       <div class="sunPlaceholder"></div>
       <router-link class="mercury" :to="linkToPlanet('mercury')"
-        ><Planet planetName="Mercury" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.mercury"
+          planet="Mercury"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
       <router-link class="venus" :to="linkToPlanet('venus')"
-        ><Planet planetName="Venus" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.venus"
+          planet="Venus"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
       <router-link class="earth" :to="linkToPlanet('earth')"
-        ><Planet planetName="Earth" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.earth"
+          planet="Earth"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
       <router-link class="mars" :to="linkToPlanet('mars')"
-        ><Planet planetName="Mars" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.mars"
+          planet="Mars"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
       <router-link class="jupiter" :to="linkToPlanet('jupiter')"
-        ><Planet planetName="Jupiter" :isTag="true"
+        ><Planet :planetName="planets.jupiter" planet="Jupiter" :isTag="true"
       /></router-link>
       <router-link class="saturn" :to="linkToPlanet('saturn')"
-        ><Planet planetName="Saturn" :isTag="true" :isEnlarge="true"
+        ><Planet
+          :planetName="planets.saturn"
+          planet="Saturn"
+          :isTag="true"
+          :isEnlarge="true"
       /></router-link>
       <router-link class="uranus" :to="linkToPlanet('uranus')"
-        ><Planet planetName="Uranus" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.uranus"
+          planet="Uranus"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
       <router-link class="neptune" :to="linkToPlanet('neptune')"
-        ><Planet planetName="Neptune" :isTag="true" :isEnlarge="false"
+        ><Planet
+          :planetName="planets.neptune"
+          planet="Neptune"
+          :isTag="true"
+          :isEnlarge="false"
       /></router-link>
     </div>
   </div>
@@ -46,7 +85,25 @@ export default {
   data() {
     return {
       isMobile: false,
-    }
+      title: "",
+      valueCbx: true,
+      language: "EN",
+      planets: null,
+    };
+  },
+  watch: {
+    valueCbx(value) {
+      if (value === false) {
+        this.language = "ES";
+        this.title = "Sistema Solar";
+        this.$store.commit("setLanguage", "ES");
+      } else {
+        this.language = "EN";
+        this.title = "Solar System";
+        this.$store.commit("setLanguage", "EN");
+      }
+      this.changeLanguage();
+    },
   },
   methods: {
     linkToPlanet(planet) {
@@ -55,21 +112,41 @@ export default {
     handleView() {
       this.isMobile = window.innerWidth <= 700;
     },
+    changeLanguage() {
+      this.planets = this.$store.getters.getPlanets;
+    },
   },
   mounted() {
     window.addEventListener("resize", () => {
       this.handleView();
     });
-    let isAnim = this.$store.getters.getIsInitialAnim;
-    if(isAnim){
-      gsap.timeline()
-      .from(".planets a:not(:first-child)", {y:80, opacity:0,stagger:0.1, duration:1, ease:"back"})
-      .from(".title", {opacity:0, scale:0, ease:"circ", duration:1})
+    if (this.$store.getters.getLanguage === "EN") {
+      this.valueCbx = true;
+      this.$refs.langswitch.checked = true;
+      this.title = "Solar System";
+    } else {
+      this.title = "Sistema Solar";
+      this.valueCbx = false;
+      this.$refs.langswitch.checked = false;
     }
-    this.$store.commit('setIsInitialAnim', false);
+    let isAnim = this.$store.getters.getIsInitialAnim;
+    if (isAnim) {
+      gsap
+        .timeline()
+        .from(".planets a:not(:first-child)", {
+          y: 80,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 1,
+          ease: "back",
+        })
+        .from(".title", { opacity: 0, scale: 0, ease: "circ", duration: 1 });
+    }
+    this.$store.commit("setIsInitialAnim", false);
   },
   created() {
     this.handleView();
+    this.planets = this.$store.getters.getPlanets;
   },
 };
 </script>
@@ -120,6 +197,81 @@ a {
   margin-right: -2%;
 }
 
+.language {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  right: 2%;
+  top: 5%;
+}
+
+.lang {
+  margin-right: 10px;
+  color: white;
+  background-color: #081b32;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #9fc4e4;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #5e91e3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #5e91e3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 @media (max-width: 700px) {
   .planets {
     width: 100%;
@@ -130,6 +282,14 @@ a {
     align-items: center;
     justify-content: space-between;
     height: 1150px;
+  }
+  .language {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    right: 2%;
+    top: 8%;
   }
   .sun {
     transform: rotate(90deg);

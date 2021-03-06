@@ -28,7 +28,7 @@
     <div class="content">
       <div class="centerTag">
         <div class="tag">
-          <h1>{{ name }}</h1>
+          <h1>{{ planetName }}</h1>
         </div>
       </div>
       <div class="centerContainer">
@@ -52,11 +52,14 @@
             <div class="centerTag">
               <div
                 class="images"
-                :class="{ selected: displaySection === 'images' }"
+                :class="[
+                  { selected: displaySection === 'images' },
+                  { imagesES: isES },
+                ]"
                 @click="displaySection = 'images'"
               >
                 <img src="@/assets/cameraIcon.svg" alt="images" />
-                <h2>Images</h2>
+                <h2>{{ buttons.images }}</h2>
               </div>
             </div>
             <div class="centerTag">
@@ -66,7 +69,7 @@
                 @click="displaySection = 'picture'"
               >
                 <img src="@/assets/circleIcon.svg" alt="Picture" />
-                <h2>Picture</h2>
+                <h2>{{ buttons.picture }}</h2>
               </div>
             </div>
             <div class="centerTag">
@@ -76,7 +79,7 @@
                 @click="displaySection = '3D'"
               >
                 <img src="@/assets/threeD.svg" alt="3d" />
-                <h2>3D view</h2>
+                <h2>{{ buttons.threeD }}</h2>
               </div>
             </div>
           </div>
@@ -118,6 +121,7 @@ export default {
   data() {
     return {
       name: "",
+      planetName: "",
       distanceToSun: "",
       distanceToEarth: "",
       avgTemperature: "",
@@ -129,6 +133,8 @@ export default {
       resizeSaturn: false,
       isClose: true,
       imgNum: null,
+      buttons: null,
+      isES: null,
     };
   },
   methods: {
@@ -145,6 +151,7 @@ export default {
     const planetInfo = this.$store.getters.getPlanetInfo(planet);
     this.resizeSaturn = planetInfo.name === "Saturn" ? true : false;
     this.name = planetInfo.name;
+    this.planetName = planetInfo.planetName;
     this.distanceToSun = planetInfo.distanceToSun;
     this.distanceToEarth = planetInfo.distanceToEarth;
     this.avgTemperature = planetInfo.temperature;
@@ -152,6 +159,21 @@ export default {
     this.dayDuration = planetInfo.dayDuration;
     this.yearDuration = planetInfo.yearDuration;
     this.curiosities = planetInfo.curiosities;
+    if (this.$store.getters.getLanguage === "EN") {
+      this.buttons = {
+        images: "Images",
+        picture: "Picture",
+        threeD: "3D view",
+      };
+      this.isES = false;
+    } else {
+      this.buttons = {
+        images: "Imágenes",
+        picture: "Dibujo",
+        threeD: "3D vista",
+      };
+      this.isES = true;
+    }
   },
   mounted() {
     window.scrollTo(0, 0);
@@ -271,6 +293,12 @@ h1 {
   grid-auto-flow: column;
   align-items: center;
   justify-items: center;
+}
+
+.imagesES {
+  display: grid !important;
+  grid-template-columns: 1fr 3fr !important;
+  align-items: center !important;
 }
 
 .planetOptions {

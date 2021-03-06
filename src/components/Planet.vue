@@ -17,7 +17,7 @@
         { planetImgEnlarge: isEnlarge },
         { sun: isSun },
       ]"
-      :src="require('@/assets/' + planetName + '.svg')"
+      :src="require('@/assets/' + planet + '.svg')"
       :alt="planetName"
     />
   </div>
@@ -25,7 +25,7 @@
 
 <script>
 export default {
-  props: ["planetName", "isTag", "isEnlarge"],
+  props: ["planetName", "planet" , "isTag", "isEnlarge"],
   data() {
     return {
       hover: false,

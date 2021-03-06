@@ -4,7 +4,7 @@
     <section>
       <div class="centerTag">
         <div class="tag">
-          <h2>Distance to de Sun</h2>
+          <h2>{{ title.distanceSun }}</h2>
         </div>
       </div>
       <h5 class="distanceNumSun">{{ distanceToSun }}</h5>
@@ -28,7 +28,7 @@
     <section v-if="!isEarth">
       <div class="centerTag">
         <div class="tag">
-          <h2>Distance to de Earth</h2>
+          <h2>{{ title.distanceEarth }}</h2>
         </div>
       </div>
       <h5
@@ -61,7 +61,7 @@
     <section style="margin-top: 15px">
       <div class="centerTag">
         <div class="tag">
-          <h2>Average temperature</h2>
+          <h2>{{ title.avgTemperature }}</h2>
         </div>
       </div>
       <div class="avgTemperature">
@@ -83,7 +83,7 @@
       <section class="alignDiameter">
         <div class="centerTag">
           <div class="tag">
-            <h2>Diameter</h2>
+            <h2>{{ title.diameter }}</h2>
           </div>
         </div>
         <h5 class="diameter">{{ diameter }}</h5>
@@ -96,7 +96,7 @@
       <section class="alignDayDuration">
         <div class="centerTag">
           <div class="tag">
-            <h2>Day duration</h2>
+            <h2>{{ title.dayDuration }}</h2>
           </div>
         </div>
         <div class="centerDayDuration">
@@ -121,7 +121,7 @@
     <section style="margin-top: 15px">
       <div class="centerTag">
         <div class="tag">
-          <h2>Year duration</h2>
+          <h2>{{ title.yearDuration }}</h2>
         </div>
       </div>
       <div class="yearDuration">
@@ -134,7 +134,7 @@
     <section style="margin-top: 15px">
       <div class="centerTag">
         <div class="tag">
-          <h2>Curiosities</h2>
+          <h2>{{ title.curiosities }}</h2>
         </div>
       </div>
       <ul class="curiosities">
@@ -170,6 +170,7 @@ export default {
       isNeptune: false,
       isNumFar: false, // Makes value distance earth closer to de line
       isLineClose: false, // Makes line arrow far from earth and planet
+      title: null, //Titles of of the sections
     };
   },
   computed: {
@@ -204,6 +205,27 @@ export default {
       this.planetName === "Jupiter" || this.planetName === "Uranus"
         ? true
         : false;
+    if (this.$store.getters.getLanguage === "EN") {
+      this.title = {
+        distanceSun: "Distance to the Sun",
+        distanceEarth: "Distance to the Earth",
+        avgTemperature: "Average temperature",
+        diameter: "Diameter",
+        dayDuration: "Day duration",
+        yearDuration: "Year duration",
+        curiosities: "Curiosities",
+      };
+    } else {
+      this.title = {
+        distanceSun: "Distancia al Sol",
+        distanceEarth: "Distancia a la Tierra",
+        avgTemperature: "Temperatura media",
+        diameter: "Diametro",
+        dayDuration: "Duración día",
+        yearDuration: "Duración año",
+        curiosities: "Curiosidades",
+      };
+    }
   },
 };
 </script>
