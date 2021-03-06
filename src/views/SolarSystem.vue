@@ -13,7 +13,7 @@
     <div class="planets">
       <router-link :class="{ sun: isMobile }" class="sun" to="/"
         ><Planet
-          :planetName="planets.sun"
+          planetName="Sun"
           planet="Sun"
           :isTag="false"
           :isEnlarge="false"
@@ -183,6 +183,7 @@ a {
   align-content: center;
   align-items: center;
   justify-content: space-between;
+  z-index: 0;
 }
 
 .sun {
@@ -204,6 +205,7 @@ a {
   align-items: center;
   right: 2%;
   top: 5%;
+  z-index: 2;
 }
 
 .lang {
